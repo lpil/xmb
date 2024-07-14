@@ -1,16 +1,16 @@
-name = "htmb"
+name = "xmb"
 version = "2.0.0"
 gleam = ">= 0.32.0"
-description = "A tiny HTML builder for Gleam"
+description = "A tiny XML builder for Gleam"
 licences = ["Apache-2.0"]
 
-repository = { type = "github", user = "lpil", repo = "htmb" }
+repository = { type = "github", user = "lpil", repo = "xmb" }
 links = [
   { title = "Sponsor", href = "https://github.com/sponsors/lpil" },
 ]
 
 [dependencies]
-gleam_stdlib = "~> 0.29 or ~> 1.0"
+gleam_stdlib = ">= 0.39.0 and < 2.0.0"
 
 [dev-dependencies]
-gleeunit = "~> 1.0"
+gleeunit = ">= 1.2.0 and < 2.0.0"

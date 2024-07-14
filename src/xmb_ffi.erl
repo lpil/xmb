@@ -1,3 +1,3 @@
--module(htmb_ffi).
+-module(xmb_ffi).
 -export([identity/1]).
 identity(X) -> X.
