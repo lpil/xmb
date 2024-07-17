@@ -1,7 +1,7 @@
 # Extensible Markup Builder
 
-[![Package Version](https://img.shields.io/hexpm/v/htmb)](https://hex.pm/packages/htmb)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/htmb/)
+[![Package Version](https://img.shields.io/hexpm/v/xmb)](https://hex.pm/packages/xmb)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/xmb/)
 
 A tiny XML builder for Gleam.
 
