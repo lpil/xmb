@@ -12,13 +12,13 @@ import gleam/string_builder
 
 pub fn main() {
   x("greeting", [], [text("Hello, Joe!")])
-  |> render
+  |> xmb.render
   |> string_builder.to_string
   |> io.println
 }
 ```
 ```xml
-<greeting>Hello, Joe!</greeting>
+<?xml version=\"1.0\" encoding=\"UTF-8\"?><greeting>Hello, Joe!</greeting>
 ```
 
 This package doesn't do much. If you'd like more features, check out these
