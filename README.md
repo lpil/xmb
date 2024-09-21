@@ -6,11 +6,19 @@
 A tiny XML builder for Gleam.
 
 ```gleam
-let html = 
+import xmb.{text, x}
+import gleam/io
+import gleam/string_builder
+
+pub fn main() {
   x("greeting", [], [text("Hello, Joe!")])
   |> render
   |> string_builder.to_string
-assert html == "<greeting>Hello, Joe!</greeting>"
+  |> io.println
+}
+```
+```xml
+<greeting>Hello, Joe!</greeting>
 ```
 
 This package doesn't do much. If you'd like more features, check out these
