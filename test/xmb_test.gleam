@@ -47,3 +47,17 @@ pub fn escaping_test() {
   |> string_tree.to_string
   |> should.equal("<stuff>&lt;script&gt;alert('&amp;');&lt;/script&gt;</stuff>")
 }
+
+pub fn cdata_test() {
+  x("stuff", [], [xmb.cdata("<script>alert('&');</script>")])
+  |> xmb.render_fragment
+  |> string_tree.to_string
+  |> should.equal("<stuff><![CDATA[<script>alert('&');</script>]]></stuff>")
+}
+
+pub fn cdata_escaping_test() {
+  x("stuff", [], [xmb.cdata(" ]]> ")])
+  |> xmb.render_fragment
+  |> string_tree.to_string
+  |> should.equal("<stuff><![CDATA[ ]]]]><!CDATA[> ]]></stuff>")
+}

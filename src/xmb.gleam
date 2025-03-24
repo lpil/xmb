@@ -49,6 +49,12 @@ pub fn text(content: String) -> Xml {
   |> dangerous_unescaped_fragment
 }
 
+pub fn cdata(content: String) -> Xml {
+  let content = string.replace(content, "]]>", "]]]]><!CDATA[>")
+  string_tree.from_string("<![CDATA[" <> content <> "]]>")
+  |> dangerous_unescaped_fragment
+}
+
 pub fn escape(content: String) -> String {
   do_escape("", content)
 }
