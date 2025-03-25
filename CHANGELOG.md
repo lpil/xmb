@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.3.0 - 2025-03-25
+
+- Added the `nothing` function.
+
 ## v1.2.0 - 2025-03-24
 
 - Added the `cdata` function.

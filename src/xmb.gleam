@@ -22,6 +22,7 @@ import gleam/string_tree.{type StringTree}
 
 pub type Xml
 
+/// Create a XML element with attributes and children.
 pub fn x(
   tag: String,
   attributes: List(#(String, String)),
@@ -42,6 +43,7 @@ pub fn x(
   |> dangerous_unescaped_fragment
 }
 
+/// Create a XML text node.
 pub fn text(content: String) -> Xml {
   content
   |> do_escape("", _)
@@ -49,9 +51,17 @@ pub fn text(content: String) -> Xml {
   |> dangerous_unescaped_fragment
 }
 
+/// Create a XML text node as CDATA rather than escaping XML entities. This is
+/// often easier to read and will render slightly faster.
 pub fn cdata(content: String) -> Xml {
   let content = string.replace(content, "]]>", "]]]]><!CDATA[>")
   string_tree.from_string("<![CDATA[" <> content <> "]]>")
+  |> dangerous_unescaped_fragment
+}
+
+/// Create a text node of nothing at all!
+pub fn nothing() -> Xml {
+  string_tree.new()
   |> dangerous_unescaped_fragment
 }
 

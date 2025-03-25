@@ -61,3 +61,10 @@ pub fn cdata_escaping_test() {
   |> string_tree.to_string
   |> should.equal("<stuff><![CDATA[ ]]]]><!CDATA[> ]]></stuff>")
 }
+
+pub fn nothing_test() {
+  x("stuff", [], [xmb.text("before "), xmb.nothing(), xmb.text(" after")])
+  |> xmb.render_fragment
+  |> string_tree.to_string
+  |> should.equal("<stuff>before  after</stuff>")
+}
