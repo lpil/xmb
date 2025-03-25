@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.4.0 - 2025-03-25
+
+- Added the `fragment` function.
+
 ## v1.3.0 - 2025-03-25
 
 - Added the `nothing` function.

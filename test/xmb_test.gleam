@@ -68,3 +68,17 @@ pub fn nothing_test() {
   |> string_tree.to_string
   |> should.equal("<stuff>before  after</stuff>")
 }
+
+pub fn fragment_test() {
+  [
+    x("wibble", [], [text("the wibble!")]),
+    x("wibble", [], [text("another wibble!")]),
+    x("wibble", [], [text("yes, you guessed, another wibble")]),
+  ]
+  |> xmb.fragment
+  |> xmb.render_fragment
+  |> string_tree.to_string
+  |> should.equal(
+    "<wibble>the wibble!</wibble><wibble>another wibble!</wibble><wibble>yes, you guessed, another wibble</wibble>",
+  )
+}

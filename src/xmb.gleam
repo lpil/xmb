@@ -79,6 +79,7 @@ fn do_escape(escaped: String, content: String) -> String {
   }
 }
 
+/// Render an XML document.
 pub fn render(xml: List(Xml)) -> StringTree {
   xml
   |> list.map(render_fragment)
@@ -94,10 +95,19 @@ fn child(siblings: StringTree, child: Xml) -> StringTree {
   string_tree.append_tree(siblings, render_fragment(child))
 }
 
+/// Dangerously inject some string content into the XML document. This will not
+/// be escaped! Your string must be valid XML syntax! Do not mess up!
 @external(erlang, "xmb_ffi", "identity")
 @external(javascript, "./xmb_ffi.mjs", "identity")
 pub fn dangerous_unescaped_fragment(s: StringTree) -> Xml
 
+/// Create XML from multiple existing nodes.
+@external(erlang, "xmb_ffi", "identity")
+@external(javascript, "./xmb_ffi.mjs", "identity")
+pub fn fragment(s: List(Xml)) -> Xml
+
+/// Render XML to a fragment, that is a XML document without an XML
+/// declaration.
 @external(erlang, "xmb_ffi", "identity")
 @external(javascript, "./xmb_ffi.mjs", "identity")
 pub fn render_fragment(element: Xml) -> StringTree
