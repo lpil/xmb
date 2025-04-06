@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.4.1 - 2025-04-06
+
+- Fixed the `fragment` function on JavaScript.
+
 ## v1.4.0 - 2025-03-25
 
 - Added the `fragment` function.

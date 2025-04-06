@@ -101,10 +101,18 @@ fn child(siblings: StringTree, child: Xml) -> StringTree {
 @external(javascript, "./xmb_ffi.mjs", "identity")
 pub fn dangerous_unescaped_fragment(s: StringTree) -> Xml
 
-/// Create XML from multiple existing nodes.
 @external(erlang, "xmb_ffi", "identity")
 @external(javascript, "./xmb_ffi.mjs", "identity")
-pub fn fragment(s: List(Xml)) -> Xml
+fn unrender(s: List(Xml)) -> List(StringTree)
+
+/// Create XML from multiple existing nodes.
+@external(erlang, "xmb_ffi", "identity")
+pub fn fragment(xml: List(Xml)) -> Xml {
+  xml
+  |> unrender
+  |> string_tree.concat
+  |> dangerous_unescaped_fragment
+}
 
 /// Render XML to a fragment, that is a XML document without an XML
 /// declaration.
